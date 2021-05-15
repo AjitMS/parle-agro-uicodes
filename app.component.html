@@ -1,0 +1,94 @@
+<div class="page-wrapper pb-0">
+
+  <div class='row'>
+    <div class='col-1'>
+        <label for="plant-selection">Select Plant:</label>
+    </div>
+    <div class='col-3'>
+      <select (change)="onPlantSelect()" class="form-control" name="plant-select" id="plant-select-id" [(ngModel)]= "selectedPlant">
+        <option value = "" selected> Please select</option>
+            <option id="option{{index}}" [ngValue]="plant" *ngFor= "let plant of plantMaster; let index = index"> {{plant.name}}
+            </option>
+      </select>
+    </div>
+  </div>
+&nbsp;
+  <div class='row'>
+    <div class='col-1'>
+        <label for="plant-selection">Select Machine:</label>
+    </div>
+    <div class='col-3'>
+      <select (change)="onMachineSelect()" class="form-control" name="machine-select" id="machine-select-id" [(ngModel)]= "selectedMachine">
+        <option value = "" selected> Please select</option>
+            <option id="machine-option{{index}}" [ngValue]="machine" *ngFor= "let machine of machineMaster; let index = index"> {{machine.name}}
+            </option>
+      </select>
+    </div>
+  </div>
+  &nbsp;
+  <div class='row'>
+    <div class='col-12'>
+      <label>Packaging Test</label>
+      </div>
+  </div>
+<hr>
+  &nbsp;
+
+  <div class='row'>
+    <div class='col-12'>
+
+    <table  *ngIf = 'selectedMachine && selectedMachine != null'>
+      <tr class = 'small-font'>
+        <th> - </th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+        <th>07:00 07:30</th>
+      </tr>
+      
+        <tr *ngFor="let test of qualityTransaction" class = 'small-font'>
+          <td [title] = 'test.dataAt07_00_07_30?.description'> <strong> {{test.qualityName}}</strong></td>
+          <td> <input [type]="test.dataAt07_00_07_30.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt07_00_07_30.data'></td>
+          <td> <input [type]="test.dataAt07_30_08_00.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt07_30_08_00.data'> </td>
+          <td> <input [type]="test.dataAt08_00_08_30.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt08_00_08_30.data'></td>
+          <td> <input [type]="test.dataAt08_30_09_00.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt08_30_09_00.data'></td>
+          <td> <input [type]="test.dataAt09_00_09_30.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt09_00_09_30.data'></td>
+          <td> <input [type]="test.dataAt09_30_10_00.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt09_30_10_00.data'></td>
+          <td> <input [type]="test.dataAt10_00_10_30.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt10_00_10_30.data'></td>
+          <td> <input [type]="test.dataAt10_30_11_00.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt10_30_11_00.data'></td>
+          <td> <input [type]="test.dataAt11_00_11_30.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt11_00_11_30.data'></td>
+          <td> <input [type]="test.dataAt11_30_12_00.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt11_30_12_00.data'></td>
+          <td> <input [type]="test.dataAt12_00_12_30.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt12_00_12_30.data'></td>
+          <td> <input [type]="test.dataAt12_30_01_00.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt12_30_01_00.data'></td>
+          <td> <input [type]="test.dataAt01_00_01_30.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt01_00_01_30.data'></td>
+          <td> <input [type]="test.dataAt01_30_02_00.dataType" [class]="test.dataAt07_00_07_30.className" [(ngModel)] = 'test.dataAt01_30_02_00.data'></td>
+      </tr>
+
+    </table>
+    </div>
+    &nbsp;
+</div>
+
+<div class='row' *ngIf = 'selectedMachine && selectedMachine != null'>
+    <div class='col-4'></div>
+    <div class='col-4'>
+      <div class = 'row text-center'>
+      <button type = 'button' class = 'btn btn-primary btn-block'>Save</button>
+    </div>
+  </div>
+  <div class='col-4'></div>
+</div>
+
+
+
+</div>
